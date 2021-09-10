@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #fff6eb;
+            font-family: 'Karla', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+        }
+
+        .header {
+            height: 40px;
+            background-color: white;
+            position: fixed;
+            top: 0%;
+            z-index: 100;
+            width: 100%;
+        }
+
+        #dropleft {
+            display: none;
+        }
+
+        .header_list {
+            position: fixed;
+            right: 10%;
+            line-height: 40px;
+        }
+
+        .header_list2 {
+            position: fixed;
+            right: 10%;
+            display: none;
+            line-height: 40px;
+        }
+        .header_list3{
+            position: fixed;
+            right: 11%;
+            line-height: 30px;
+        }
+        .header_list4 {
+            position: fixed;
+            right: 22%;
+            line-height: 30px;
+        }
+        .header_cart {
+            position: fixed;
+            right: 5%;
+            line-height: 40px;
+        }
+
+        .div_style {
+            top: 100px;
+            position: relative;
+            margin-left: 25%;
+            justify-content: center;
+            display: grid;
+        }
+
+        .title1 {
+            color: #012839;
+            font-size: 32px;
+            line-height: 40px;
+            font-weight: bold;
+        }
+
+        .title2 {
+            color: #012839;
+            font-size: 26px;
+            line-height: 34px;
+            font-weight: bold;
+        }
+
+        .text1 {
+            color: #012839;
+            font-size: 14px;
+            line-height: 30px;
+            font-weight: 400;
+        }
+        .text2{
+            width: 780px; 
+            position: relative; 
+            top: 50px; 
+            left: 10px; 
+            font-size: 18px; 
+            color: #797979; 
+            font-family: 'Karla', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+        }
+
+        .div_margin1 {
+            top: 60px;
+            left: 150px;
+            position: relative;
+        }
+
+        .icon_color {
+            color: #e6e1d9;
+            margin-right: 10px;
+        }
+
+        .icon_color:hover {
+            color: #de7e6a;
+        }
+
+        .footer1 {
+            position: relative;
+            top: 200px;
+            text-align: center;
+        }
+
+        .footer1_color {
+            color: #ffc7b8;
+            margin-right: 10px;
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 400;
+        }
+
+        .footer1_color:hover {
+            color: #de7e6a;
+        }
+
+        .footer2 {
+            position: relative;
+            top: 300px;
+        }
+
+        .footer2_color {
+            color: #797979;
+            font-size: 16px;
+            line-height: 26px;
+        }
+
+        .footer2_color:hover {
+            color: #f68e59;
+        }
+        .footer3_color {
+            color: #012839;
+            font-size: 18px;
+            line-height: 28px;
+            font-weight: 900;
+        }
+        .footer3_color:hover {
+            color: #ffc7b8;
+        }
+        .footer4_position{
+            position: absolute;
+            right: 10%;
+        }
+        .footer5_position{
+            position: absolute;
+            right: 20%;
+        }
+        .button4 {
+            width: 50px;
+            height: 30px;
+            color: white;
+            background-color: black;
+            font-size: 10px;
+        }
+        .arrow_show {
+        color: lightgray;
+        font-size: 20px;
+        }
+        .arrow_show:hover {
+        color: black;
+        }
+        #cookie2{
+            position: fixed;
+             height: 50px; 
+             width: 100%; 
+             background-color: white; 
+             bottom: 0%;
+             z-index: 100;
+        }
+        #cookie_text{
+            position: relative; 
+            top: 15px; 
+            font-size: 11px; 
+            font-family: inherit;
+            text-align: center;
+        } 
+        .footer2_table{
+        border-collapse: separate; 
+        border-spacing: 100px  0px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $(".header_list").click(function () {
+                $("#dropleft").show();
+                $(".header_list").hide();
+                $(".header_list2").show();
+                $(".header_list2").click(function () {
+                    $("#dropleft").hide();
+                    $(".header_list2").hide();
+                    $(".header_list").show();
+                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#button2").click(function () {
+                $("#cookie2").hide();
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="header">
+        <table>
+            <tr>
+                <td style="top: 0%; color: black; font-size: 35px; font-weight: bold;"> <a href="design2.html">The Book.</a>
+                        
+                </td> 
+                
+                <td id="dropleft" style="position: fixed; right: 15%;">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="dropdown header_list4">
+                                    <button class="dropdown-toggle" type="button"
+                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        View Demos
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" href="#">Macarons</a></li>
+                                        <li><a class="dropdown-item" href="#">Water Bottle</a></li>
+                                        <li><a class="dropdown-item" href="#">Perfume</a></li>
+                                        <li><a class="dropdown-item" href="#">Book</a></li>
+                                        <li><a class="dropdown-item" href="#">Pillow</a></li>
+                                        <li><a class="dropdown-item" href="#">Weights loss</a></li>
+                                        <li><a class="dropdown-item" href="#">Soft</a></li>
+                                        <li><a class="dropdown-item" href="#">Drone</a></li>
+                                        <li><a class="dropdown-item" href="#">Interior</a></li>
+                                        <li><a class="dropdown-item" href="#">Perfume</a></li>
+                                        <li><a class="dropdown-item" href="#">Socks</a></li>
+                                        <li><a class="dropdown-item" href="#">Bike</a></li>
+                                        <li><a class="dropdown-item" href="#">Travel Ways</a></li>
+                                        <li><a class="dropdown-item" href="#">Clothes</a></li>
+                                        <li><a class="dropdown-item" href="#">Glasses</a></li>
+                                        <li><a class="dropdown-item" href="#">Photo-app</a></li>
+                                        <li><a class="dropdown-item" href="#">Furniture</a></li>
+                                    </ul>
+                                </div>
+
+                            </td>
+                            <td class="header_list3"><a href="">Theme Functionality</a></td>
+                        </tr>
+                    </table>
+                </td>
+
+                <td class="header_list"><i class="fas fa-bars"></i></td>
+                <td class="header_list2"><i class="fas fa-times"></i></td>
+                <td class="header_cart"><i class="fal fa-shopping-bag"></i></td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div class="div_style">
+        <div class="row">
+            <div class="col-6">
+                <p class="title1">Julia Jameson</p>
+                <p>Editor</p>
+                <img 
+                    src="https://shopaddict.cmsmasters.net/book/wp-content/uploads/sites/6/2015/04/profile-3-3.jpg"
+                    alt="">
+                    <p class="text2">
+                        Integer dignissim dolor quis lorem semper, sit amet convallis ipsum dignissim. Sed diam quam,
+                        aliquam a fringilla at, lobortis sed velit. Cum sociis natoque penatibus et magnis dis parturient
+                        montes, nascetur ridiculus mus. Nulla iaculis enim id mauris pharetra laoreet. Aliquam a ipsum
+                        fringilla purus euismod bibendum et et ipsum. Suspendisse eget sagittis sem. Nam vitae purus ante.
+                        Nam aliquam luctus diam.
+                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam
+                        vel erat vitae lectus dictum lacinia. Sed nec dolor at lacus sagittis ultrices a et lorem. Aliquam
+                        fermentum consequat dolor, nec lacinia lectus fermentum ut. In et justo id justo tristique placerat.
+                        Nulla facilisi. Maecenas commodo erat in nisi vehicula lobortis in vitae urna. Sed rhoncus mi quis
+                        nulla aliquam, vel eleifend purus molestie. Duis eleifend nunc sit amet mi dapibus ornare.
+                        Suspendisse vel libero se Maecenas ornare consequat massa ullamcorper dapibus. Aliquam auctor,
+                        sapien sit amet accumsan facilisis, enim enim aliquet arcu, tincidunt pellentesque justo turpis id
+                        neque. Duis eleifend nunc sit amet mi dapibus ornare. Suspendisse vel libero se. Maecenas tempus leo
+                        ac nisi iaculis porta. Sed sapien tortor, aliquet a velit ut, lacinia molestie velit. Maecenas
+                        ornare consequat massa ullamcorper dapibus.
+                    </p>
+            </div>
+
+            <div class="col-4 div_margin1">
+                <p class="title2"> Profile details</p>
+                <p class="text1">Likes:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href=""><i class="far fa-heart"></i>5</a>
+                </p>
+                <p class="text1"> Address:
+                    Birmingham B18 6NF</p>
+                <p class="text1">Phone:
+                    +1 222 333 444</p>
+                <p class="text1"> Email:
+                    example@example.com</p>
+                <p class="text1">Categories:
+                    Blogger</p>
+                <p class="text1"> Socials</p>
+                <a href="" class="icon_color"><i class="fab fa-twitter"></i></a>
+                <a href="" class="icon_color"><i class="fab fa-facebook-f"></i></a>
+                <a href="" class="icon_color"><i class="fab fa-instagram"></i></a>
+                <a href="" class="icon_color"><i class="fab fa-youtube"></i></a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="footer1">
+
+        <a class="footer1_color" href="">Facebook</a> <a class="footer1_color" href="">Twitter</a> <a
+            class="footer1_color" href=""> Pinterest</a>
+
+    </div>
+
+   
+    <div class="footer2">
+        <table class="footer2_table">
+            <tr>
+                <td class="arrow_show"><i class="fas fa-arrow-left"></i></td>
+                <td> <a class="footer2_color" href=""> Previous Profile</a> <br>
+                    <a class="footer3_color" href="">Alice Bohm</a>
+                </td>
+                <td class="footer5_position">
+                    <a class="footer2_color" href=""> Next Profile</a> <br>
+                    <a class="footer3_color" href="">Amy Adams</a>
+                </td>
+                <td class="footer4_position arrow_show"><i class="fas fa-arrow-right"></i></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="cookie2">
+        <p id="cookie_text">
+            This website uses
+                cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you
+                wish.<button type="button" class="button4" id="button2">Accept</button>
+           
+        </p>
+    </div>
+
+    <div style="position: relative; top: 400px;"><center>Privacy Policy / This is a sample website - cmsmasters © 2021 / All Rights Reserved</center> </div>
+
+</body>
+
+</html>
